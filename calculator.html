@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mortgage Calculator Kenya – NMCL | Calculate Your Repayment in KES</title>
+  <meta name="description" content="Use NMCL's free mortgage calculator to estimate your monthly repayment in Kenyan Shillings. Enter property value, down payment, and term to get an instant result." />
+  <link rel="icon" href="assets/Main logo load.png" type="image/png" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .full-calc-wrap {
+      background: var(--teal);
+      min-height: 80vh;
+      padding: 60px 24px;
+    }
+    .full-calc-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 48px;
+      align-items: flex-start;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .full-calc-left { color: var(--white); }
+    .full-calc-left h2 {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+    .full-calc-left p {
+      color: rgba(255,255,255,0.75);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+    .calc-tip {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      margin-bottom: 16px;
+    }
+    .calc-tip h4 {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-bottom: 6px;
+    }
+    .calc-tip p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.65);
+      margin: 0;
+    }
+    .full-calc-right {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: var(--radius);
+      padding: 40px;
+    }
+    .full-calc-right label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 8px;
+    }
+    .full-calc-right input,
+    .full-calc-right select {
+      width: 100%;
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: var(--radius-sm);
+      color: var(--white);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      transition: var(--transition);
+    }
+    .full-calc-right input:focus,
+    .full-calc-right select:focus {
+      border-color: var(--gold);
+      background: rgba(255,255,255,0.22);
+      outline: none;
+    }
+    .full-calc-right input::placeholder { color: rgba(255,255,255,0.45); }
+    .full-calc-right select option { background: var(--teal-dark); }
+    .result-card {
+      background: rgba(0,0,0,0.2);
+      border-radius: var(--radius);
+      padding: 28px;
+      margin: 24px 0;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .result-card h3 {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 8px;
+    }
+    .result-big {
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+    .result-sub { font-size: 0.82rem; color: rgba(255,255,255,0.5); }
+    .result-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.9rem;
+    }
+    .result-row:last-child { border-bottom: none; }
+    .result-row .label { color: rgba(255,255,255,0.65); }
+    .result-row .value { font-weight: 700; color: var(--white); }
+    @media(max-width:900px){.full-calc-grid{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+
+<!-- ░░ PAGE LOADER ░░ -->
+<div id="page-loader" role="status" aria-label="Loading">
+  <div class="loader-logo-wrap">
+    <img src="assets/Main logo load.png" alt="NMCL Logo" class="loader-main-img">
+    <div class="loader-name-wrap">
+      <div class="loader-company-line">Nationwide Mortgage</div>
+      <span class="loader-underline"></span>
+      <div class="loader-limited">Company Limited</div>
+    </div>
+  </div>
+</div>
+
+<!-- ░░ NAVIGATION ░░ -->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="NMCL Home">
+      <img src="assets/Logo 2.png" alt="NMCL" />
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="products.html">Our Products</a>
+      <a href="about.html">About Us</a>
+      <a href="resources.html">Resources</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <div class="nav-actions">
+      <a href="contact.html#qualify" class="btn-gold nav-cta">Check If I Qualify</a>
+      <a href="calculator.html" class="btn-teal-outline nav-cta">Calculator</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="how-it-works.html">How It Works</a>
+  <a href="products.html">Our Products</a>
+  <a href="about.html">About Us</a>
+  <a href="resources.html">Resources</a>
+  <a href="contact.html">Contact</a>
+  <div class="mobile-menu-actions">
+    <a href="contact.html#qualify" class="btn-gold">Check If I Qualify</a>
+    <a href="calculator.html" class="btn-teal-outline">Calculator</a>
+  </div>
+</div>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span>Calculator</span></div>
+      <h1>Mortgage Calculator</h1>
+      <p>Estimate your monthly repayment instantly — all figures in Kenyan Shillings (KES).</p>
+    </div>
+  </div>
+
+  <!-- FULL CALCULATOR -->
+  <div class="full-calc-wrap">
+    <div class="full-calc-grid">
+      <div class="full-calc-left reveal">
+        <p class="section-label" style="color:rgba(255,255,255,0.6);">How to Use This Calculator</p>
+        <h2>Get a Realistic Picture of Your Monthly Repayment</h2>
+        <p>This calculator uses standard mortgage amortisation to give you an instant estimate of what your monthly repayment could look like based on the property value, your down payment, the loan term, and the current interest rate.</p>
+        <p>All calculations are in Kenyan Shillings (KES). This is a planning tool — contact our team for a fully personalised and binding quote.</p>
+
+        <div class="calc-tip">
+          <h4>💡 What is a Down Payment?</h4>
+          <p>A down payment is the amount you pay upfront toward the property. For most Kenyan mortgages, this is typically 10–20% of the property value. The remainder is what you borrow.</p>
+        </div>
+        <div class="calc-tip">
+          <h4>📊 What Interest Rate Should I Use?</h4>
+          <p>We've pre-filled the average Kenyan mortgage rate. This fluctuates with the Central Bank of Kenya's base rate. Our team can advise you on the current rate for your specific product.</p>
+        </div>
+        <div class="calc-tip">
+          <h4>📅 Which Loan Term is Right For Me?</h4>
+          <p>A longer term means lower monthly payments but more total interest paid. A shorter term means higher monthly payments but you own your home outright sooner. Our loan officers will help you find the right balance.</p>
+        </div>
+      </div>
+
+      <div class="full-calc-right reveal" id="calc-form">
+        <h3 style="color:var(--white);font-size:1.1rem;font-weight:700;margin-bottom:24px;">Enter Your Details</h3>
+
+        <label for="calc-prop-value">Property Value (KES)</label>
+        <input type="text" id="calc-prop-value" placeholder="e.g. 8000000" value="8000000" />
+
+        <label for="calc-down-payment">Down Payment (KES)</label>
+        <input type="text" id="calc-down-payment" placeholder="e.g. 2000000" value="2000000" />
+
+        <label for="calc-term">Loan Term</label>
+        <select id="calc-term">
+          <option value="3">3 Years</option>
+          <option value="5">5 Years</option>
+          <option value="10" selected>10 Years</option>
+          <option value="15">15 Years</option>
+          <option value="20">20 Years</option>
+        </select>
+
+        <label for="calc-rate">Annual Interest Rate (%)</label>
+        <input type="number" id="calc-rate" value="13.5" step="0.1" min="1" max="30" />
+
+        <button class="btn-primary" id="calc-btn" type="button" style="width:100%;justify-content:center;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 11h.01M12 11h.01M15 11h.01M4 19h16a2 2 0 002-2V7a2 2 0 00-2-2H4a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          Calculate
+        </button>
+
+        <div class="result-card">
+          <h3>Estimated Monthly Repayment</h3>
+          <div class="result-big" id="res-monthly">KES 0</div>
+          <div class="result-sub">Based on entered details above</div>
+        </div>
+
+        <div class="result-row">
+          <span class="label">Total Loan Amount</span>
+          <span class="value" id="res-loan">KES 0</span>
+        </div>
+        <div class="result-row">
+          <span class="label">Total Amount Repaid</span>
+          <span class="value" id="res-total">KES 0</span>
+        </div>
+        <div class="result-row">
+          <span class="label">Total Interest Paid</span>
+          <span class="value" id="res-interest">KES 0</span>
+        </div>
+
+        <div style="margin-top:24px;">
+          <a href="contact.html#qualify" class="btn-primary" style="width:100%;justify-content:center;display:flex;box-sizing:border-box;">Apply for This Loan →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DISCLAIMER -->
+  <section class="section-sm" style="background:var(--grey-bg);">
+    <div class="container text-center">
+      <p style="font-size:0.85rem;color:var(--grey-text);max-width:700px;margin:0 auto;line-height:1.7;"><strong>Important Disclaimer:</strong> All figures produced by this calculator are estimates for planning purposes only and do not constitute a mortgage offer, commitment, or guarantee. Actual rates and repayments may vary based on your individual circumstances, credit assessment, and prevailing market conditions. All values are in Kenyan Shillings (KES). Contact NMCL for a personalised quote.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container reveal">
+      <h2>Like What You See?</h2>
+      <p>Talk to one of our loan officers today. Bring your figures and we'll build a proper plan around them.</p>
+      <a href="contact.html" class="btn-dark">Speak to a Loan Officer</a>
+    </div>
+  </section>
+
+<!-- ⑫ FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/Logo 2.png" alt="NMCL" class="footer-logo">
+        <p>Opening New Doors in Mortgage Financing</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="products.html">Our Products</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p>+254 748 276 779</p>
+        <p>info@nationwidemortgage.co.ke</p>
+        <p>www.nationwidemortgage.co.ke</p>
+      </div>
+      <div class="footer-disclaimer">
+        <h4>Disclaimer</h4>
+        <p>Promoting Access to Credit and Equal Housing Opportunity. Nationwide Mortgage Company Limited is incorporated in Kenya.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
