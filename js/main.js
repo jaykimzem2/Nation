@@ -30,14 +30,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileMenu = document.getElementById('mobile-menu');
   if (hamburger && mobileMenu) {
     hamburger.addEventListener('click', () => {
-      const open = mobileMenu.classList.toggle('open');
-      hamburger.setAttribute('aria-expanded', open);
+      const active = mobileMenu.classList.toggle('active');
+      hamburger.setAttribute('aria-expanded', active);
       hamburger.classList.toggle('active');
     });
     // Close on link click
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
+        mobileMenu.classList.remove('active');
         hamburger.setAttribute('aria-expanded', 'false');
         hamburger.classList.remove('active');
       });
@@ -137,5 +137,62 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  /* ── MULTI-STEP LOAN KYC FORM ────────────────────────────── */
+  const forms = document.querySelectorAll('.kyc-loan-form');
+  
+  forms.forEach(form => {
+    const steps = form.querySelectorAll('.form-step');
+    const nextBtns = form.querySelectorAll('.next-step');
+    const prevBtns = form.querySelectorAll('.prev-step');
+    const progressDots = form.querySelectorAll('.progress-dot');
+    let currentStep = 0;
+
+    function updateForm() {
+      steps.forEach((step, i) => {
+        step.classList.toggle('active', i === currentStep);
+      });
+      if (progressDots.length > 0) {
+        progressDots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === currentStep);
+        });
+      }
+    }
+
+    nextBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (currentStep < steps.length - 1) {
+          currentStep++;
+          updateForm();
+          
+          // Scroll form into view if needed
+          form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+    });
+
+    prevBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (currentStep > 0) {
+          currentStep--;
+          updateForm();
+          form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+    });
+  });
+
+  /* ── KES INPUT FORMATTER ─────────────────────────────── */
+  const kesInputs = document.querySelectorAll('.kes-format');
+  kesInputs.forEach(input => {
+    input.addEventListener('input', (e) => {
+      let value = e.target.value.replace(/,/g, '').replace(/[^\d]/g, '');
+      if (value) {
+        e.target.value = parseInt(value).toLocaleString('en-KE');
+      } else {
+        e.target.value = '';
+      }
+    });
+  });
 
 });

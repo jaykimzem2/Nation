@@ -236,7 +236,176 @@
     </div>
   </section>
 
-  <!-- ⑦ WHO IS NMCL FOR? -->
+  <!-- ⑦ HOME BUYER PROGRAM (NEW) -->
+  <section class="section home-buyer-section" id="home-buyer">
+    <div class="container">
+      <div class="workshop-grid">
+        <div class="workshop-content reveal">
+          <p class="section-label">NEW PRODUCT</p>
+          <h2 class="section-title" style="margin-bottom: 20px;">The NMCL Home Buyer Program</h2>
+          <p class="section-sub" style="margin-left: 0; text-align: left;">Every Kenyan deserves a home. Our program offers specialized rates and educational support for first-time buyers whose dream has always felt just out of reach.</p>
+          <ul style="margin-bottom: 30px;">
+            <li style="margin-bottom: 10px;">✅ Interest rates starting at 12.5%</li>
+            <li style="margin-bottom: 10px;">✅ Mentorship throughout the building/buying process</li>
+            <li style="margin-bottom: 10px;">✅ Flexible down-payment options</li>
+          </ul>
+          <a href="#loan-form" class="btn-gold">Apply for the Program</a>
+        </div>
+        <div class="workshop-image reveal">
+          <img src="assets/home-buyer.png" alt="Happy Kenyan Couple">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑧ MORTGAGE WORKSHOPS (NEW) -->
+  <section class="section workshop-section" id="workshops">
+    <div class="container">
+      <div class="workshop-grid" style="direction: rtl;">
+        <div class="workshop-content reveal" style="direction: ltr;">
+          <span class="cert-badge">Get Certified</span>
+          <h2 class="section-title" style="margin-bottom: 20px;">Empowering Kenyans Through Education</h2>
+          <p class="section-sub" style="margin-left: 0; text-align: left;">Buying a home is the biggest investment you'll ever make. Our weekend workshops cover everything from land titling and NCA approvals to mortgage math.</p>
+          <p style="margin-bottom: 30px; opacity: 0.8;">Upon completion, you get a <strong>NMCL Homeownership Certificate</strong> which can unlock better mortgage rates and faster approvals.</p>
+          <a href="resources.html" class="btn-teal-outline">View Workshop Schedule</a>
+        </div>
+        <div class="workshop-image reveal">
+          <img src="assets/mortgage-workshop.png" alt="Kenyan Mortgage Workshop">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑨ INTERACTIVE LOAN KYC FORM (NEW) -->
+  <section class="section" id="loan-form" style="background:#fff;">
+    <div class="container">
+      <div class="form-header reveal">
+        <h2 class="section-title">Kenyan Mortgage Application (KYC)</h2>
+        <p class="section-sub">Let's get started on your journey home. Fill in the details below.</p>
+      </div>
+      
+      <div class="form-container reveal">
+        <div class="form-progress">
+          <span class="progress-dot active"></span>
+          <span class="progress-dot"></span>
+          <span class="progress-dot"></span>
+          <span class="progress-dot"></span>
+        </div>
+
+        <form id="kyc-loan-form" class="kyc-loan-form">
+          <!-- Step 1: Personal -->
+          <div class="form-step active">
+            <h3>Step 1: Your Identity</h3>
+            <p style="margin-bottom: 20px; font-size: 0.9rem; opacity: 0.7;">We need your basic details as per your ID/Passport.</p>
+            <div class="form-group">
+              <label>Full Name (as per ID)</label>
+              <input type="text" placeholder="e.g. John Kamau Maina" required>
+            </div>
+            <div class="form-group">
+              <label>ID Number or Passport Number</label>
+              <input type="text" placeholder="e.g. 12345678" required>
+            </div>
+            <div class="form-group">
+              <label>Phone Number (M-PESA Registered Preferred)</label>
+              <input type="tel" placeholder="e.g. 0712 345 678" required>
+            </div>
+            <div class="form-nav">
+              <span></span>
+              <button type="button" class="btn-gold next-step">Continue to Financials</button>
+            </div>
+          </div>
+
+          <!-- Step 2: Financial & Credit -->
+          <div class="form-step">
+            <h3>Step 2: Financial Profile</h3>
+            <p style="margin-bottom: 20px; font-size: 0.9rem; opacity: 0.7;">This helps us determine which mortgage product fits you best.</p>
+            <div class="form-group">
+              <label>Primary Source of Income</label>
+              <select required>
+                <option value="">Select...</option>
+                <option value="employed">Employed (Salaried)</option>
+                <option value="business">Self-Employed (Business)</option>
+                <option value="diaspora">Diaspora Remittances</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Average Monthly Net Income (KES)</label>
+              <input type="text" placeholder="e.g. 150,000" class="kes-format" required>
+            </div>
+            <div class="form-group">
+              <label>Is this your first time taking a mortgage/large loan in Kenya?</label>
+              <select required>
+                <option value="yes">Yes, first-time borrower</option>
+                <option value="no">No, I have borrowed before</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Current Outstanding Loans/Debts (Monthly Repayment)</label>
+              <input type="text" placeholder="e.g. 20,000 or Enter 'None'" class="kes-format">
+            </div>
+            <div class="form-group">
+              <label>Approximate Loan Amount Needed (KES)</label>
+              <input type="text" placeholder="e.g. 5,000,000" class="kes-format" required>
+            </div>
+            <div class="form-nav">
+              <button type="button" class="btn-teal-outline prev-step">Back</button>
+              <button type="button" class="btn-gold next-step">Next: Property Info</button>
+            </div>
+          </div>
+
+          <!-- Step 3: Property -->
+          <div class="form-step">
+            <h3>Step 3: Property Details</h3>
+            <p style="margin-bottom: 20px; font-size: 0.9rem; opacity: 0.7;">Where is your dream home located?</p>
+            <div class="form-group">
+              <label>Intended Property Location</label>
+              <input type="text" placeholder="e.g. Ruiru, Kiambu County" required>
+            </div>
+            <div class="form-group">
+              <label>Property Status</label>
+              <select required>
+                <option value="">Select...</option>
+                <option value="buying">Buying Existing Home</option>
+                <option value="building">Building (New Construction)</option>
+                <option value="land">Land Purchase Only</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Have you identified the property/plot yet?</label>
+              <select>
+                <option value="yes">Yes</option>
+                <option value="no">Not yet</option>
+              </select>
+            </div>
+            <div class="form-nav">
+              <button type="button" class="btn-teal-outline prev-step">Back</button>
+              <button type="button" class="btn-gold next-step">Final Step</button>
+            </div>
+          </div>
+
+          <!-- Step 4: Submission -->
+          <div class="form-step">
+            <h3>Final Step: Documents & Submit</h3>
+            <p style="margin-bottom: 20px; font-size: 0.9rem; opacity: 0.7;">Almost there! Our team will contact you for official documentation.</p>
+            <div class="form-group">
+              <label>Additional Notes / Special Requests</label>
+              <textarea placeholder="Tell us more about your specific needs..."></textarea>
+            </div>
+            <div class="form-group" style="display:flex; align-items:center; gap:10px;">
+              <input type="checkbox" id="terms" style="width:auto;" required>
+              <label for="terms" style="margin-bottom:0; font-weight:400; font-size:0.85rem;">I agree to NMCL's processing of my data for mortgage assessment.</label>
+            </div>
+            <div class="form-nav">
+              <button type="button" class="btn-teal-outline prev-step">Back</button>
+              <button type="submit" class="btn-gold">Submit My Application</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑩ WHO IS NMCL FOR? -->
   <section class="section" id="audience" style="background:#F5F5F5;">
     <div class="container">
       <div class="text-center reveal">
@@ -247,13 +416,13 @@
           <div class="aud-icon">🏠</div>
           <h3>First-Time Home Buyers</h3>
           <p>Never done this before? Perfect. We'll educate you, guide you, and make buying your first home simple.</p>
-          <a href="products.html" class="btn-gold-sm">This Is Me</a>
+          <a href="#loan-form" class="btn-gold-sm">This Is Me</a>
         </div>
         <div class="audience-card-full reveal">
           <div class="aud-icon">🏗️</div>
           <h3>Home Builders</h3>
           <p>Have a plot and want to build? Our construction financing releases funds stage by stage as your project grows.</p>
-          <a href="products.html#construction" class="btn-gold-sm">This Is Me</a>
+          <a href="#loan-form" class="btn-gold-sm">This Is Me</a>
         </div>
         <div class="audience-card-full reveal">
           <div class="aud-icon">📈</div>
