@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mortgage Pre-Qualification Tool | Check Your Eligibility | NMCL</title>
+  <meta name="description" content="Use our mortgage pre-qualification tool to estimate your loan limit, risk profile, and monthly repayment based on your income and expenses." />
+  <link rel="icon" href="assets/Main logo load.png" type="image/png" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="page-loader" role="status" aria-label="Loading">
+  <div class="loader-logo-wrap">
+    <img src="assets/Main logo load.png" alt="NMCL Logo" class="loader-main-img">
+    <div class="loader-name-wrap"><div class="loader-company-line">Nationwide Mortgage</div><span class="loader-underline"></span><div class="loader-limited">Company Limited</div></div>
+  </div>
+</div>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="assets/Logo 2.png" alt="NMCL" /></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="products.html">Our Products</a>
+      <a href="mls.html">MLS</a>
+      <a href="resources.html">Resources</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <div class="nav-actions">
+      <a href="pre-qualify.html" class="btn-gold nav-cta">Pre-Qualify Now</a>
+      <a href="calculator.html" class="btn-teal-outline nav-cta">Calculator</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <section class="hero-sub" style="background:var(--teal); color:white; padding: 140px 0 60px; text-align:center;">
+    <div class="container reveal">
+      <h1 style="font-size: 3rem; margin-bottom: 20px;">Mortgage Pre-Qualification</h1>
+      <p style="font-size: 1.2rem; opacity: 0.9; max-width: 700px; margin: 0 auto;">Know your limit and risk profile in minutes. Entirely on the frontend, no strings attached.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="prequal-wrap reveal">
+        <!-- FORM SIDE -->
+        <div class="prequal-form">
+          <h3 style="margin-bottom:30px;">Your Financial Details</h3>
+          
+          <div class="form-group">
+            <label>Monthly Gross Income (KES)</label>
+            <input type="text" id="pre-income" class="kes-format" placeholder="e.g. 200,000">
+          </div>
+
+          <div class="form-group">
+            <label>Monthly Expenses / Existing Loan Repayments (KES)</label>
+            <input type="text" id="pre-expenses" class="kes-format" placeholder="e.g. 50,000">
+          </div>
+
+          <div class="form-group">
+            <label>Desired Loan Amount (KES)</label>
+            <input type="text" id="pre-loan" class="kes-format" placeholder="e.g. 5,000,000">
+          </div>
+
+          <div class="form-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+            <div class="form-group">
+              <label>Loan Tenure (Years)</label>
+              <select id="pre-tenure">
+                <option value="5">5 Years</option>
+                <option value="10">10 Years</option>
+                <option value="15" selected>15 Years</option>
+                <option value="20">20 Years</option>
+                <option value="25">25 Years</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Employment Status</label>
+              <select id="pre-employment">
+                <option value="Employed">Employed</option>
+                <option value="Self-Employed">Self-Employed</option>
+                <option value="Diaspora">Diaspora</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Property Type of Interest</label>
+            <select id="pre-property">
+              <option value="Land">Land / Plot</option>
+              <option value="Apartment">Apartment</option>
+              <option value="Bungalow">Bungalow</option>
+              <option value="Mansion">Mansion</option>
+              <option value="Rental Unit">Rental Unit</option>
+            </select>
+          </div>
+
+          <button id="prequal-btn" class="btn-gold" style="width:100%; margin-top:20px;">Calculate Pre-Qualification</button>
+        </div>
+
+        <!-- RESULTS SIDE -->
+        <div class="prequal-results" id="prequal-results-box">
+          <h3 style="margin-bottom:30px; text-align:center;">Eligibility Indicator</h3>
+          
+          <div style="text-align:center; margin-bottom:40px;">
+             <p style="font-size:0.85rem; color:var(--grey-text); text-transform:uppercase; letter-spacing:1px; margin-bottom:10px;">Estimated Max Loan</p>
+             <div id="res-pre-limit" style="font-size:2rem; font-weight:900; color:var(--teal);">KES 0</div>
+          </div>
+
+          <div class="result-row" style="border-bottom:1px solid #eee; padding:15px 0;">
+            <span style="color:var(--grey-text);">Monthly Repayment</span>
+            <span id="res-pre-monthly" style="font-weight:700;">KES 0</span>
+          </div>
+
+          <div class="result-row" style="border-bottom:1px solid #eee; padding:15px 0;">
+            <span style="color:var(--grey-text);">Debt-to-Income Ratio</span>
+            <span id="res-pre-dti" style="font-weight:700;">0%</span>
+          </div>
+
+          <div id="risk-indicator" class="risk-indicator risk-low" style="display:none;">
+            RISK PROFILE: <span id="res-pre-risk">LOW</span>
+          </div>
+
+          <div style="margin-top:40px; text-align:center;">
+            <p style="font-size:0.85rem; color:var(--grey-text); margin-bottom:20px;">Encouraged to book a consultation for a full formal assessment.</p>
+            <a href="contact.html" class="btn-dark" style="width:100%;">Book Consultation</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- DISCLAIMER -->
+      <div style="margin-top:40px; text-align:center;">
+        <p style="font-size:0.8rem; color:var(--grey-text); max-width:700px; margin:0 auto; line-height:1.6;">
+          <strong>Disclaimer:</strong> This calculator provides an estimate only and does not constitute a formal mortgage offer or commitment. Results are based on the information provided and are subject to full credit assessment and approval by Nationwide Mortgage Ltd and its banking partners.
+        </p>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('prequal-btn');
+    
+    function formatKES(n) {
+      return 'KES ' + Math.round(n).toLocaleString('en-KE');
+    }
+
+    btn.addEventListener('click', () => {
+      const income = parseFloat(document.getElementById('pre-income').value.replace(/,/g, '')) || 0;
+      const expenses = parseFloat(document.getElementById('pre-expenses').value.replace(/,/g, '')) || 0;
+      const loan = parseFloat(document.getElementById('pre-loan').value.replace(/,/g, '')) || 0;
+      const tenure = parseInt(document.getElementById('pre-tenure').value) || 15;
+      
+      if (income === 0) return alert('Please enter your monthly income');
+
+      // Simple qualification logic: 
+      // Monthly repayment should not exceed 40% of net income (income - expenses)
+      const disposable = income - expenses;
+      const maxMonthlyAllowed = disposable * 0.45;
+      
+      const rate = 0.135 / 12; // 13.5% annual
+      const months = tenure * 12;
+
+      // Calculate max loan limit based on maxMonthlyAllowed
+      const maxLoan = maxMonthlyAllowed * (Math.pow(1 + rate, months) - 1) / (rate * Math.pow(1 + rate, months));
+      
+      // Calculate repayment for the desired loan amount
+      let monthlyRepayment = (loan * rate * Math.pow(1 + rate, months)) / (Math.pow(1 + rate, months) - 1);
+      if (loan === 0) monthlyRepayment = 0;
+
+      // Debt to Income Ratio
+      const dti = ((monthlyRepayment + expenses) / income) * 100;
+
+      // Risk Profile
+      let risk = "LOW";
+      let riskClass = "risk-low";
+      if (dti > 45) { risk = "HIGH"; riskClass = "risk-high"; }
+      else if (dti > 35) { risk = "MODERATE"; riskClass = "risk-moderate"; }
+
+      document.getElementById('res-pre-limit').textContent = formatKES(maxLoan);
+      document.getElementById('res-pre-monthly').textContent = formatKES(monthlyRepayment);
+      document.getElementById('res-pre-dti').textContent = dti.toFixed(1) + '%';
+      
+      const indicator = document.getElementById('risk-indicator');
+      indicator.style.display = 'block';
+      indicator.className = 'risk-indicator ' + riskClass;
+      document.getElementById('res-pre-risk').textContent = risk;
+    });
+  });
+</script>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/Logo 2.png" alt="NMCL" class="footer-logo">
+        <p>Opening New Doors in Mortgage Financing</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="products.html">Our Products</a></li>
+          <li><a href="mls.html">MLS</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p>+254 716 575 954</p>
+        <p>info@nationwidemortgageltd.co.ke</p>
+        <p>www.nationwidemortgageltd.co.ke</p>
+      </div>
+      <div class="footer-disclaimer">
+        <h4>Disclaimer</h4>
+        <p>Promoting Access to Credit and Equal Housing Opportunity. Nationwide Mortgage Company Limited is incorporated in Kenya.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
