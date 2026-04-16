@@ -130,6 +130,7 @@ button { cursor: pointer; border: none; outline: none; }
   backdrop-filter: blur(15px);
 }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.nav-logo { margin-right: auto; }
 .nav-logo img { height: 80px; }
 .nav-links { display: flex; gap: 30px; }
 .nav-links a { font-weight: 600; color: var(--dark); font-size: 0.95rem; }
