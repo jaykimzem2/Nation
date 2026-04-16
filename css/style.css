@@ -102,7 +102,7 @@ button { cursor: pointer; border: none; outline: none; }
   animation: logoReveal 1.5s ease-out forwards;
   display: block;
   margin: 0 auto 24px;
-  width: 120px;
+  width: 180px;
 }
 @keyframes logoReveal {
   from { opacity: 0; transform: scale(0.9); }
@@ -130,7 +130,7 @@ button { cursor: pointer; border: none; outline: none; }
   backdrop-filter: blur(15px);
 }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-.nav-logo img { height: 45px; }
+.nav-logo img { height: 80px; }
 .nav-links { display: flex; gap: 30px; }
 .nav-links a { font-weight: 600; color: var(--dark); font-size: 0.95rem; }
 .nav-links a:hover, .nav-links a.active { color: var(--teal); }
@@ -342,7 +342,7 @@ button { cursor: pointer; border: none; outline: none; }
 /* ── FOOTER ── */
 .footer { background: var(--dark); color: white; padding: 80px 0 40px; }
 .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.5fr; gap: 50px; }
-.footer-logo { height: 50px; margin-bottom: 20px; }
+.footer-logo { height: 80px; margin-bottom: 20px; }
 .footer-logo { filter: brightness(0) invert(1); }
 .footer h4 { margin-bottom: 25px; border-bottom: 2px solid var(--gold); display: inline-block; padding-bottom: 5px; }
 .footer-links ul li { margin-bottom: 10px; }
