@@ -32,16 +32,14 @@
     </a>
     <div class="nav-links">
       <a href="index.html">Home</a>
-      <a href="how-it-works.html">How It Works</a>
-      <a href="products.html">Our Products</a>
-      <a href="mls.html">MLS</a>
-      <a href="resources.html" class="active">Resources</a>
       <a href="about.html">About Us</a>
-      <a href="contact.html">Contact Us</a>
+      <a href="how-it-works.html">Offering</a>
+      <a href="products.html">FINANCING</a>
     </div>
     <div class="nav-actions">
       <a href="pre-qualify.html" class="btn-gold nav-cta">Pre-Qualify Now</a>
       <a href="calculator.html" class="btn-teal-outline nav-cta">Calculator</a>
+      <a href="contact.html" class="btn-teal nav-cta">Contact Us</a>
     </div>
   </div>
 </nav>
@@ -50,7 +48,7 @@
   <section class="hero-sub" style="background:var(--dark); color:white; padding: 140px 0 80px; text-align:center;">
     <div class="container reveal">
       <span class="badge-new">EXCLUSIVE RESOURCE</span>
-      <h1 style="font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 20px;">The Free Mortgage Home Kit</h1>
+      <h1 style="font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 20px;">First time home buyer Kit</h1>
       <p style="font-size: 1.2rem; opacity: 0.9; max-width: 800px; margin: 0 auto;">Your essential toolkit for the journey from "Renting" to "Owning" in Kenya.</p>
     </div>
   </section>
@@ -72,67 +70,16 @@
             <li style="margin-bottom:15px; display:flex; gap:10px;"><span>🛡️</span> <strong>Expert Insights:</strong> Learn how financing works, what documents are required, and how to make the most of your mortgage.</li>
           </ul>
 
-          <div style="background:#f9f9f9; padding:25px; border-radius:15px; border-left:4px solid var(--gold);">
+          <div style="background:#f9f9f9; padding:25px; border-radius:15px; border-left:4px solid var(--gold); margin-bottom:30px;">
             <p style="font-weight:700; margin-bottom:10px;">How to get it?</p>
-            <p style="font-size:0.9rem; color:var(--grey-text);">The kit is provided <strong>free of charge</strong> to first-time home buyers who sign up for a Nationwide Mortgage workshop or a one-on-one consultation.</p>
+            <p style="font-size:0.9rem; color:var(--grey-text);">The kit is provided <strong>free of charge</strong> to first-time home buyers. Simply click the button below to download your copy instantly.</p>
+            <a href="assets/KREPP-Kit_color-FINL.pdf" download="NMCL-First-Time-Home-Buyer-Kit.pdf" class="btn-gold" style="display:inline-block; margin-top:15px;">Get Your Kit Here</a>
           </div>
           
-          <div id="workshop-form-container" style="margin-top:40px; background:#fff; padding:30px; border-radius:15px; box-shadow: var(--shadow); border: 1px solid var(--grey-mid);">
-            <h3 style="margin-bottom:20px; font-size:1.5rem; color:var(--dark);">Join our Workshop & Get the Kit</h3>
-            <p style="margin-bottom:20px; font-size:0.9rem; color:var(--grey-text);">Fill in your details to join our next workshop. Your free home kit will download automatically after submission.</p>
-            
-            <form id="home-kit-form">
-              <div class="form-group" style="margin-bottom:15px;">
-                <label style="font-size:0.85rem;">Full Name</label>
-                <input type="text" id="kit-name" placeholder="Enter your full name" required style="padding:12px;">
-              </div>
-              <div class="form-group" style="margin-bottom:15px;">
-                <label style="font-size:0.85rem;">Email Address</label>
-                <input type="email" id="kit-email" placeholder="Enter your email" required style="padding:12px;">
-              </div>
-              <div class="form-group" style="margin-bottom:20px;">
-                <label style="font-size:0.85rem;">Phone Number</label>
-                <input type="tel" id="kit-phone" placeholder="Enter your phone number" required style="padding:12px;">
-              </div>
-              <button type="submit" class="btn-gold" style="width:100%; border:none;">Join Workshop & Download Kit</button>
-            </form>
-            
-            <div id="success-msg" style="display:none; margin-top:20px; padding:20px; background:#e6f9ed; color:#2ecc71; border-radius:10px; text-align:center; font-weight:700;">
-              <span style="font-size:1.5rem; display:block; margin-bottom:5px;">✅</span>
-              Success Submitted! <br> Your download is starting...
-            </div>
+          <!-- Thumbnail Section -->
+          <div class="book-thumbnail-container" style="margin-top:20px;">
+             <img src="assets/kit-thumbnail.png" alt="Home Buyer Kit Thumbnail" class="book-thumb" style="width:100%; max-width:250px; border-radius:10px; box-shadow: var(--shadow-lg); border: 1px solid #eee;">
           </div>
-
-          <!-- Hidden download link -->
-          <a id="download-trigger" href="assets/KREPP-Kit_color-FINL.pdf" download="NMCL-Mortgage-Home-Kit.pdf" style="display:none;"></a>
-
-          <script>
-            document.getElementById('home-kit-form').addEventListener('submit', function(e) {
-              e.preventDefault();
-              
-              const form = this;
-              const successMsg = document.getElementById('success-msg');
-              const downloadTrigger = document.getElementById('download-trigger');
-              
-              // Hide form
-              form.style.display = 'none';
-              
-              // Show success message
-              successMsg.style.display = 'block';
-              
-              // Trigger auto download
-              setTimeout(() => {
-                downloadTrigger.click();
-              }, 1000);
-              
-              // Here you would typically send the data to a server
-              console.log('Form Submitted:', {
-                name: document.getElementById('kit-name').value,
-                email: document.getElementById('kit-email').value,
-                phone: document.getElementById('kit-phone').value
-              });
-            });
-          </script>
         </div>
       </div>
     </div>
@@ -185,8 +132,10 @@
       </div>
       <div class="footer-contact">
         <h4>Contact</h4>
-        <p>+254 716 575 954</p>
-        <p>info@nationwidemortgageltd.co.ke</p>
+        <p><strong>Kenya:</strong> Thika PALM ARCADE OFF THIKA RD HIGHWAY, GARDEN MALL ENVIRONS</p>
+        <p><strong>USA:</strong> 533 NORTHFIELD ROAD, SUITE #300 A, BEDFORD HEIGHT, OH 44146</p>
+        <p>Phone: +254 716 575 954</p>
+        <p>Email: info@nationwidemortgageltd.co.ke</p>
       </div>
     </div>
   </div>
